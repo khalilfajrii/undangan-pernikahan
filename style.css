@@ -58,6 +58,23 @@ body{
 }
 
 
+.myNavbar{
+
+}
+
+.myNavbar .navbar-brand,
+.myNavbar .offcanvas-title{
+    font-family: 'Sacramento', cursive;
+    font-size: 3.2rem;
+    font-weight: bold;
+}
+
+.myNavbar .nav-link{
+    text-transform: uppercase;
+}
+
+
+
 
 /* Media query */
 /* Laptop */
@@ -81,6 +98,11 @@ body{
     .simply-countdown > .simply-section{
         padding: 60px;
         margin: 5px;
+    }
+
+    .myNavbar .nav-link{
+        font-size: 2rem;
+        text-align: center;
     }
 }
 
