@@ -60,7 +60,7 @@
               <a class="nav-link" href="#story">Story</a>
               <a class="nav-link" href="#gallery">Gallery</a>
               <a class="nav-link" href="#rsvp">RSVP</a>
-              <a class="nav-link" href="#gift">Gift</a>
+              <a class="nav-link" href="#gifts">Gift</a>
             </div>      
           </div>
         </div>
@@ -284,7 +284,8 @@
           </div>
         </div>
 
-        <form class="row row-cols-md-auto g-3 align-items-center justify-content-center">
+        <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" id="my-form" method="POST" 
+        action="https://script.google.com/macros/s/AKfycbwv4DzB5gLj3LLJDRu9U83mbs1_MX3y1w-G16zTAG2ghwid84HVuAz-Lprqvh-tY6Ux/exec">
           <div class="col-12">
             <div class="mb-3">
               <label for="nama" class="form-label">Nama</label>
@@ -302,8 +303,8 @@
               <label for="status" class="form-label">konfirmasi</label>
               <select name="status" id="status" class="form-select">
                 <option selected>Pilih salah satu</option>
-                <option value="1">Hadir</option>
-                <option value="0">Tidak Hadir</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
               </select>
             </div>
           </div>
@@ -316,6 +317,58 @@
 
       </div>
     </section>
+
+
+    <section id="gifts" class="gifts">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <span>Ungkapan Tanda Kasih</span>
+            <h2>Kirim Hariah</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem laudantium ipsa, odio repellendus necessitatibus blanditiis!</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center text-center">
+          <div class="col-md-6">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="fw-bold">BNI</div> 
+                123456789 - KHALILUL FAJRI ZAMARDIYANTO
+              </li>
+              <li class="list-group-item">
+                <div class="fw-bold">BSI</div> 
+                287346724 - KHALILUL FAJRI ZAMARDIYANTO
+              </li>
+              <li class="list-group-item">
+                <div class="fw-bold">contoh QR Code</div> 
+                <img src="img/QR.png" alt="Cth QR" class="img-thumbnail" width="150">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <small class="block">&copy;2023 JUNA Wedding. All Rights Reserves</small>
+            <small class="block">Design By <a href="https://instagram.com/khalilfajri">@khalilfajri</a></small>
+
+            <ul class="mt-3">
+              <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+              <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+              <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -375,6 +428,26 @@
       if(!localStorage.getItem('opened')){
         disableScoll()
       }
+
+    </script>
+
+
+    <script>
+      window.addEventListener("load", function() {
+        const form = document.getElementById('my-form');
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: 'POST',
+            body: data,
+          })
+          .then(() => {
+            alert("Konfirmasi kehadiran berhasil terkirim!");
+          })
+        });
+      });
 
     </script>
 
