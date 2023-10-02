@@ -27,7 +27,7 @@
 
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>
-            <h4>Kepada/Ibu/Bapak/Saudara/i, </h4>
+            <h4>Kepada <span>Ibu/Bapak/Saudara/i,</span></h4>
             <h1>Junta shiraishi & nagisa shiraishi</h1>
             <p>Akan melakukan resepsi pernikahan dalam:</p>
             <div class="simply-countdown">
@@ -121,6 +121,9 @@
           <div class="col-md-8 col-10 text-center">
             <h2>Informasi Acara</h2>
             <p class="alamat">Alamat : UPI Sport And Exibition Hall <br> Jl. Raya Lubuk Begalung, Lubuk Begalung Nan XX, Kec. Lubuk Begalung, Kota Padang, Sumatera Barat</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2609530172135!2d100.39579429999999!3d-0.9577163000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b982fd776c89%3A0xe9646012ac88a82b!2sUPI%20CONVENTION%20CENTER!5e0!3m2!1sen!2sid!4v1696215481865!5m2!1sen!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
             <a href="https://goo.gl/maps/ZoHdscUJMJKGNweX9" target="_blank" class="btn btn-light btn-sm my-4">Klik Untuk membuka peta</a>
             <p class="description">Diharapkan untuktidak salah alamat dan tanggal. Manakala tiba di tujuan namun tidak ada tanda tanda dilangsungkan pernikahan, boleh jadi anda salah jadwal, atau salah tempat.</p>
           </div>
@@ -314,6 +317,29 @@
           </div>
         </form>
 
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-6">
+            <div id="disqus_thread"></div>
+              <script>
+                  /**
+                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                  /*
+                  var disqus_config = function () {
+                  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                  };
+                  */
+                  (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://juna-wedding.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                  })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -388,7 +414,7 @@
 
     <script>
         simplyCountdown('.simply-countdown', {
-            year: 2023, // required
+            year: 2024, // required
             month: 9, // required
             day: 30, // required
             hours: 8, // Default is 0 [0-23] integer
@@ -488,6 +514,17 @@
         });
       });
 
+    </script>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search)
+      const nama = urlParams.get('n') || ''
+      const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i'
+
+      const namaContainer = document.querySelector('.hero h4 span')
+      namaContainer.innerHTML = `${pronoun} ${nama},`.replace(/ ,$/, ',')
+
+      document.querySelector('#nama').value = nama
     </script>
 
   </body>
